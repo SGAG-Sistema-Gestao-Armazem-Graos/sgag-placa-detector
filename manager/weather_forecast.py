@@ -35,15 +35,15 @@ class WeatherForecast:
 
 
 # Quick test
-if __name__ == "__main__":
-    forecast = WeatherForecast(
-        forecast_id=1,
-        timestamp=datetime(2025, 4, 10, 15, 30),
-        region="Midwest",
-        temperature=38,
-        humidity=18
-    )
+#if __name__ == "__main__":
+#    forecast = WeatherForecast(
+#        forecast_id=1,
+#        timestamp=datetime(2025, 4, 10, 15, 30),
+#        region="Midwest",
+#        temperature=38,
+#        humidity=18
+#    )
 
-    print(forecast)
-    print("Heat alert?", forecast.is_heat_alert())
-    print("Low humidity alert?", forecast.is_low_humidity_alert())
+#    print(forecast)
+#    print("Heat alert?", forecast.is_heat_alert())
+#    print("Low humidity alert?", forecast.is_low_humidity_alert())
