@@ -1,6 +1,3 @@
-Aqui está a documentação em formato Markdown para o seu repositório **SGAG (Sistema de Gestão de Armazém de Grãos)**:
-
-```markdown
 # SGAG - Sistema de Gestão de Armazém de Grãos
 
 O **SGAG** é um sistema automatizado desenvolvido para gerenciar o processo logístico de armazém de grãos. O sistema utiliza técnicas de **Visão Computacional** com **OpenCV** para captura de imagens de caminhões e **OCR (Reconhecimento Óptico de Caracteres)** com **Tesseract** para ler as placas dos veículos. Além disso, o sistema gerencia informações sobre os veículos, motoristas, tipos de grãos e movimentação no armazém.
@@ -131,6 +128,3 @@ Contribuições são bem-vindas! Sinta-se à vontade para abrir **issues** ou fa
 
 Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE](LICENSE) para mais detalhes.
 
-```
-
-Essa documentação cobre as principais informações sobre o projeto e fornece orientações claras para o uso e desenvolvimento do sistema **SGAG**. Você pode expandir ou ajustar conforme necessário!
