@@ -99,7 +99,7 @@ pip install -r requirements.txt
 1. Clone o repositório:
 
 ```bash
-git clone https://github.com/seu_usuario/sgag-placa-detector.git
+git clone https://github.com/SGAG-Sistema-Gestao-Armazem-Graos/sgag-placa-detector
 ```
 
 2. Navegue até o diretório do projeto:
