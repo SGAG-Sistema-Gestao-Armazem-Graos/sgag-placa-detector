@@ -82,9 +82,11 @@ A integração com o banco de dados Oracle permite que todas as informações do
 Para rodar o projeto, você precisa das seguintes dependências:
 
 - Python 3.x
-- OpenCV
-- Tesseract
-- Oracle DB (configuração do banco de dados)
+- cx_Oracle==8.3.0
+- numpy==2.2.4
+- opencv-python==4.11.0.86
+- pillow==11.1.0
+
 
 As dependências podem ser instaladas com o seguinte comando:
 
