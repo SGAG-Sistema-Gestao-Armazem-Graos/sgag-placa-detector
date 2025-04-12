@@ -13,7 +13,17 @@ class Load:
         self.initial_total_weight = initial_total_weight
         self.final_total_weight = final_total_weight
 
-    def weight_difference(self):
+    # Getters
+    def get_load_id(self) -> int:
+        return self.load_id
+
+    def get_initial_total_weight(self) -> float:
+        return self.initial_total_weight
+
+    def get_final_total_weight(self) -> float:
+        return self.final_total_weight
+
+    def weight_difference(self) -> float:
         """Returns the difference between initial and final weights."""
         return self.initial_total_weight - self.final_total_weight
 
@@ -25,12 +35,15 @@ class Load:
         )
 
 
-# Quick test (only runs when this file is executed directly)
-#if __name__ == "__main__":
-#    load = Load(
-#        load_id=1,
-#        initial_total_weight=1000.0,
-#        final_total_weight=950.5
-#    )
-#    print(load)
-#    print("Weight difference:", load.weight_difference())
+# # Quick test (only runs when this file is executed directly)
+# if __name__ == "__main__":
+#     load = Load(
+#         load_id=1,
+#         initial_total_weight=1000.0,
+#         final_total_weight=950.5
+#     )
+#     print(load)
+#     print("Weight difference:", load.weight_difference())
+#     print("Load ID:", load.get_load_id())
+#     print("Initial Total Weight:", load.get_initial_total_weight())
+#     print("Final Total Weight:", load.get_final_total_weight())

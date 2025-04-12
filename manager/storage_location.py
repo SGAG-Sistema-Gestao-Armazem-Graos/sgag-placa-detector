@@ -61,19 +61,56 @@ class StorageLocation:
         delta = (date.today() - self.last_inspection).days
         return delta > threshold_days
 
-#if __name__ == "__main__":
-#    from datetime import datetime
+    # Getters for all attributes
+    def get_location_id(self):
+        return self.location_id
 
-#    location = StorageLocation(
-#        location_id=1,
-#        location_type_id=5,
-#        location_type="WAREHOUSE",
-#        name="Armazém Central",
-#        address="Av. dos Transportes, 1234",
-#        storage_capacity=10000.50,
-#        last_inspection=date(2024, 10, 1),
-#        notes="Próxima inspeção recomendada em breve"
-#    )
+    def get_location_type_id(self):
+        return self.location_type_id
 
-#    print(location)
-#    print("Precisa de nova inspeção?", location.needs_inspection())
+    def get_location_type(self):
+        return self.location_type
+
+    def get_name(self):
+        return self.name
+
+    def get_address(self):
+        return self.address
+
+    def get_storage_capacity(self):
+        return self.storage_capacity
+
+    def get_last_inspection(self):
+        return self.last_inspection
+
+    def get_notes(self):
+        return self.notes
+
+# Exemplo de uso no bloco `if __name__ == "__main__":`
+
+if __name__ == "__main__":
+    from datetime import datetime
+
+    location = StorageLocation(
+        location_id=1,
+        location_type_id=5,
+        location_type="WAREHOUSE",
+        name="Armazém Central",
+        address="Av. dos Transportes, 1234",
+        storage_capacity=10000.50,
+        last_inspection=date(2024, 10, 1),
+        notes="Próxima inspeção recomendada em breve"
+    )
+
+    print(location)
+    print("Precisa de nova inspeção?", location.needs_inspection())
+
+    # Usando os getters
+    print(f"ID do local de armazenamento: {location.get_location_id()}")
+    print(f"Tipo do local de armazenamento: {location.get_location_type()}")
+    print(f"Nome: {location.get_name()}")
+    print(f"Endereço: {location.get_address()}")
+    print(f"Capacidade de armazenamento: {location.get_storage_capacity()} m³")
+    print(f"Última inspeção: {location.get_last_inspection()}")
+    print(f"Notas: {location.get_notes()}")
+    

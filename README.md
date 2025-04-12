@@ -13,6 +13,7 @@ sgag-placa-detector/
 │   ├── cargo_vehicle_crud.py          # CRUD para veículos de carga
 │   ├── cargo_vehicle_type_CRUD.py     # CRUD para tipos de veículos de carga
 │   ├── driver_license_crud.py
+│   ├── driver_crud.py
 │   
 ├── display/                           # Exibição de informações e relatórios
 │   ├── display_cargo_vehicle_type.py  # Exibição de tipos de veículos de carga
@@ -20,7 +21,17 @@ sgag-placa-detector/
 │   
 ├── leitura_placa/                     # Processamento de imagem e leitura de placa
 │   ├── captura_imagem.py              # Captura de imagem dos caminhões
-│  
+│
+├── ai_plate_recognition/
+│   ├── __init__.py
+│   ├── main.py               # App principal (interface ou terminal)
+│   ├── detector.py           # Responsável por detectar a placa e extrair texto
+│   ├── camera.py             # Captura imagens da câmera ou vídeo
+│   ├── plate_reader.py       # Lógica de OCR (Tesseract ou EasyOCR)
+│   ├── driver_manager.py     # CRUD para motoristas (você já tem)
+│   ├── driver.py             # Classe Driver
+│   └── images/               # Pasta para armazenar imagens
+│       └── (vazia por enquanto)
 ├── manager/                           # Lógica de gerenciamento de dados
 │   ├── cargo_vehicle_type.py          # Gerenciamento de tipos de veículos de carga
 │   ├── cargo_vehicle.py               # Gerenciamento de veículos de carga
