@@ -12,6 +12,7 @@ sgag-placa-detector/
 ├── crud_db/                          # Funções CRUD para manipulação de dados no banco de dados
 │   ├── cargo_vehicle_crud.py          # CRUD para veículos de carga
 │   ├── cargo_vehicle_type_CRUD.py     # CRUD para tipos de veículos de carga
+│   ├── driver_license_crud.py
 │   
 ├── display/                           # Exibição de informações e relatórios
 │   ├── display_cargo_vehicle_type.py  # Exibição de tipos de veículos de carga
