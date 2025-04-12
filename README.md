@@ -14,6 +14,12 @@ sgag-placa-detector/
 │   ├── cargo_vehicle_type_CRUD.py     # CRUD para tipos de veículos de carga
 │   ├── driver_license_crud.py
 │   ├── driver_crud.py
+│   ├── driver_license_crud.py
+│   ├── grain_load_crud.py
+│   ├── grain_type_crud.py
+│   ├── load_crud.py
+│   ├── responsible_person_crud.py
+│   ├── storage_location_crud.py
 │   
 ├── display/                           # Exibição de informações e relatórios
 │   ├── display_cargo_vehicle_type.py  # Exibição de tipos de veículos de carga
@@ -99,7 +105,6 @@ Para rodar o projeto, você precisa das seguintes dependências:
 - opencv-python==4.11.0.86
 - pillow==11.1.0
 
-
 As dependências podem ser instaladas com o seguinte comando:
 
 ```bash
@@ -141,4 +146,3 @@ Contribuições são bem-vindas! Sinta-se à vontade para abrir **issues** ou fa
 ## Licença
 
 Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE](LICENSE) para mais detalhes.
-
