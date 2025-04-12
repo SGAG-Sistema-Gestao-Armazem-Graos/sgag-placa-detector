@@ -39,7 +39,7 @@ sgag-placa-detector/
 │   ├── oracle_db.py                   # Arquivo de configuração de banco de dados Oracle
 │   
 ├── script_logistica_oracle/           # Scripts logísticos e de integração com Oracle
-│   ├── ...                            # Outros scripts logísticos
+│   ├── script_logistic_oracle.sql     # Outros scripts logísticos
 │   
 ├── test/                              # Testes automatizados
 │   ├── test_crud/                     # Testes dos CRUDs
