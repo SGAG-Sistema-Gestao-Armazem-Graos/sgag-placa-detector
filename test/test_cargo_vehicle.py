@@ -1,7 +1,7 @@
 import unittest
 from datetime import datetime
 
-from manager.cargo_veihcle import CargoVehicle
+from manager.cargo_vehicle import CargoVehicle
 
 
 class TestCargoVehicle(unittest.TestCase):

@@ -1,3 +1,8 @@
+
+
+from manager.cargo_vehicle_type import CargoVehicleType
+
+
 class CargoVehicle:
     """
     Represents a cargo vehicle with its attributes such as model, type, and capacity.
@@ -16,7 +21,7 @@ class CargoVehicle:
 
     def __init__(self,
                  vehicle_id: int,
-                 vehicle_type_id: int,
+                 vehicle_type_id: CargoVehicleType,
                  brand: str,
                  vehicle_description: str,
                  plate: str,
@@ -24,6 +29,9 @@ class CargoVehicle:
                  model_year: int,
                  manufacture_year: int,
                  cargo_capacity: float):
+        
+
+
         self.vehicle_id = vehicle_id
         self.vehicle_type_id = vehicle_type_id
         self.brand = brand
