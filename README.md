@@ -15,14 +15,22 @@ sgag-placa-detector/
 │   ├── 
 │   
 ├── leitura_placa/
+│   ├── captura_imagem.py
 │  
 ├── manager/
+│   ├── cargo_vehicle_type.py
 │   ├── cargo_vehicle.py
-│   ├── 
-│   ├── 
-│   ├── 
-│   ├── 
-│   ├── 
+│   ├── driver_license.py
+│   ├── driver.py
+│   ├── grain_load_type.py
+│   ├── grain_type.py
+│   ├── load.py
+│   ├── movement_forecast.py
+│   ├── movement.py
+│   ├── responsible_peson.py
+│   ├── stock_history.py
+│   ├── storage_location.py
+│   ├── weather_forecast.py
 |
 ├── oracle_db/
 │   ├── leitura_placa/
