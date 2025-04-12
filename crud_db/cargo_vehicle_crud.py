@@ -93,38 +93,38 @@ class CargoVehicleCRUD:
         print(f"🚫 Veículo com ID {vehicle_id} não encontrado.")
 
 # Testando a funcionalidade
-if __name__ == "__main__":
+#if __name__ == "__main__":
 
     # Criando o gerenciador de veículos
-    manager = CargoVehicleCRUD()
+#    manager = CargoVehicleCRUD()
 
     # Criando um veículo para testar
-    v1 = CargoVehicle(
-        vehicle_id=1,
-        vehicle_type_id= CargoVehicleType(vehicle_type_id= 1, description= "Graneleiro", route_recommendation= "URBAN"),
-        brand="Volkswagen",
-        vehicle_description="Caminhão de carga leve",
-        plate="JKL5678",
-        chassis="ABCDEF12345678901",
-        model_year=datetime.now().year,
-        manufacture_year=datetime.now().year - 1,
-        cargo_capacity=8.5
-    )
+#    v1 = CargoVehicle(
+#        vehicle_id=1,
+#        vehicle_type_id= CargoVehicleType(vehicle_type_id= 1, description= "Graneleiro", route_recommendation= "URBAN"),
+#        brand="Volkswagen",
+#        vehicle_description="Caminhão de carga leve",
+#        plate="JKL5678",
+#        chassis="ABCDEF12345678901",
+#        model_year=datetime.now().year,
+#        manufacture_year=datetime.now().year - 1,
+#        cargo_capacity=8.5
+#    )
 
     # Testando a criação de um veículo
-    manager.create_vehicle(v1)
+#    manager.create_vehicle(v1)
     
     # Testando a leitura dos veículos cadastrados
-    manager.read_vehicles()
+#    manager.read_vehicles()
     
     # Testando a atualização do veículo
-    manager.update_vehicle(1, brand="Iveco", cargo_capacity=10.0)
+#    manager.update_vehicle(1, brand="Iveco", cargo_capacity=10.0)
     
     # Testando a leitura novamente após a atualização
-    manager.read_vehicles()
+#    manager.read_vehicles()
     
     # Testando a exclusão do veículo
-    manager.delete_vehicle(1)
+#    manager.delete_vehicle(1)
     
     # Testando a leitura após a exclusão
-    manager.read_vehicles()
+#    manager.read_vehicles()

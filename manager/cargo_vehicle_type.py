@@ -96,19 +96,19 @@ class CargoVehicleType:
 
 
 # Testando a classe
-if __name__ == "__main__":
+#if __name__ == "__main__":
     # Criando um veículo de carga do tipo caminhão de três eixos
-    truck = CargoVehicleType(1, "Three-Axle Truck", "MIXED")
+#    truck = CargoVehicleType(1, "Three-Axle Truck", "MIXED")
     
     # Retornando cada atributo individualmente
-    print(f"Vehicle Type ID: {truck.get_vehicle_type_id()}")
-    print(f"Description: {truck.get_description()}")
-    print(f"Route Recommendation: {truck.get_route_recommendation()}")
+#    print(f"Vehicle Type ID: {truck.get_vehicle_type_id()}")
+#    print(f"Description: {truck.get_description()}")
+#    print(f"Route Recommendation: {truck.get_route_recommendation()}")
 
     # Verificando a recomendação de rota
-    if truck.is_highway_route():
-        print("This vehicle is suitable for highway routes.")
-    elif truck.is_urban_route():
-        print("This vehicle is suitable for urban routes.")
-    elif truck.is_mixed_route():
-        print("This vehicle is suitable for mixed routes.")
+#    if truck.is_highway_route():
+#        print("This vehicle is suitable for highway routes.")
+#    elif truck.is_urban_route():
+#        print("This vehicle is suitable for urban routes.")
+#    elif truck.is_mixed_route():
+#        print("This vehicle is suitable for mixed routes.")

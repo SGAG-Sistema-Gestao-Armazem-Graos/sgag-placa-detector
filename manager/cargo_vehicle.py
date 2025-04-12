@@ -1,22 +1,9 @@
-
-
 from manager.cargo_vehicle_type import CargoVehicleType
-
+from datetime import datetime
 
 class CargoVehicle:
     """
     Represents a cargo vehicle with its attributes such as model, type, and capacity.
-
-    Attributes:
-        vehicle_id (int): Unique identifier for the cargo vehicle.
-        vehicle_type_id (int): Identifier referencing the vehicle type.
-        brand (str): Brand of the vehicle.
-        vehicle_description (str): Description of the vehicle.
-        plate (str): Vehicle license plate (format: ABC1234 or similar).
-        chassis (str): Chassis number (up to 17 characters).
-        model_year (int): Year model of the vehicle.
-        manufacture_year (int): Year the vehicle was manufactured.
-        cargo_capacity (float): Maximum cargo capacity in tons or kilograms.
     """
 
     def __init__(self,
@@ -30,8 +17,6 @@ class CargoVehicle:
                  manufacture_year: int,
                  cargo_capacity: float):
         
-
-
         self.vehicle_id = vehicle_id
         self.vehicle_type_id = vehicle_type_id
         self.brand = brand
@@ -41,6 +26,33 @@ class CargoVehicle:
         self.model_year = model_year
         self.manufacture_year = manufacture_year
         self.cargo_capacity = cargo_capacity
+
+    def get_vehicle_id(self) -> int:
+        return self.vehicle_id
+
+    def get_vehicle_type_id(self) -> CargoVehicleType:
+        return self.vehicle_type_id
+
+    def get_brand(self) -> str:
+        return self.brand
+
+    def get_vehicle_description(self) -> str:
+        return self.vehicle_description
+
+    def get_plate(self) -> str:
+        return self.plate
+
+    def get_chassis(self) -> str:
+        return self.chassis
+
+    def get_model_year(self) -> int:
+        return self.model_year
+
+    def get_manufacture_year(self) -> int:
+        return self.manufacture_year
+
+    def get_cargo_capacity(self) -> float:
+        return self.cargo_capacity
 
     def __str__(self):
         return (
@@ -58,19 +70,21 @@ class CargoVehicle:
 
     def is_new_model(self) -> bool:
         """Checks if model year is the current year."""
-        from datetime import datetime
         return self.model_year == datetime.now().year
 
     def is_capacity_over(self, threshold: float) -> bool:
         """Returns True if cargo capacity is over the given threshold (in tons)."""
         return self.cargo_capacity > threshold
 
+# test...
 # if __name__ == "__main__":
-#     from datetime import datetime
+#     Criando um tipo de veículo
+#    vehicle_type = CargoVehicleType(101, "Truck 15t", "HIGHWAY")
 
+#     Criando o veículo de carga
 #    vehicle = CargoVehicle(
 #        vehicle_id=1,
-#        vehicle_type_id=101,
+#        vehicle_type_id=vehicle_type,
 #        brand="Mercedes-Benz",
 #        vehicle_description="Caminhão com capacidade para 15 toneladas",
 #        plate="XYZ1234",
@@ -80,6 +94,7 @@ class CargoVehicle:
 #        cargo_capacity=15.0
 #    )
 
+#     Exibindo informações
 #    print(vehicle)
 #    print("É modelo do ano?", vehicle.is_new_model())
 #    print("Capacidade maior que 10 toneladas?", vehicle.is_capacity_over(10))
