@@ -1,66 +1,83 @@
-import cx_Oracle
+import oracledb  # Certifique-se de ter instalado: pip install oracledb
 
 # Função para conectar ao banco de dados Oracle
 def connect_to_oracle():
     try:
-        # Substitua pelos seus detalhes de conexão
-        connection = cx_Oracle.connect(
-            user='seu_usuario', 
-            password='sua_senha', 
-            dsn='seu_dsn'  # O DSN pode ser algo como 'localhost:1521/sid_ou_service'
+        connection = oracledb.connect(
+            user='seu_usuario',
+            password='sua_senha',
+            dsn='localhost:1521/XE'  # Substitua pelo seu DSN (host:porta/service_name)
         )
-        print("Conexão bem-sucedida ao banco de dados!")
+        print("✅ Conexão bem-sucedida ao banco de dados!")
         return connection
-    except cx_Oracle.DatabaseError as e:
-        print(f"Erro ao conectar ao banco de dados: {e}")
+    except oracledb.DatabaseError as e:
+        print(f"❌ Erro ao conectar ao banco de dados: {e}")
         return None
 
-# Função para verificar a existência de uma tabela
+# Função para verificar a existência de uma tabela no Oracle
 def check_table_exists(connection, table_name):
     cursor = connection.cursor()
-    query = f"SELECT COUNT(*) FROM all_tables WHERE table_name = '{table_name.upper()}'"
-    cursor.execute(query)
+    query = """
+        SELECT COUNT(*)
+        FROM all_tables
+        WHERE table_name = :1 AND owner = USER
+    """
+    cursor.execute(query, [table_name.upper()])
     result = cursor.fetchone()
     cursor.close()
     return result[0] > 0
 
-# Função para executar o script SQL
-def execute_sql_script(connection, script):
-    cursor = connection.cursor()
+# Função para executar comandos SQL contidos em um arquivo .sql
+def execute_sql_script(connection, script_path):
     try:
-        cursor.execute(script)
-        connection.commit()  # Commit para garantir que as mudanças sejam aplicadas
-        print("Script executado com sucesso!")
-    except cx_Oracle.DatabaseError as e:
-        print(f"Erro ao executar o script: {e}")
+        with open(script_path, 'r') as file:
+            sql_script = file.read()
+
+        statements = [stmt.strip() for stmt in sql_script.split(';') if stmt.strip()]
+        cursor = connection.cursor()
+
+        for stmt in statements:
+            cursor.execute(stmt)
+        connection.commit()
+
+        print("✅ Script SQL executado com sucesso!")
+    except oracledb.DatabaseError as e:
+        print(f"❌ Erro ao executar o script SQL: {e}")
+    except FileNotFoundError:
+        print(f"❌ Arquivo '{script_path}' não encontrado.")
     finally:
         cursor.close()
 
-# Função principal para verificar se as tabelas existem antes de criá-las
+# Função principal
 def main():
-    # Conectar ao banco de dados
+    # Caminho do arquivo SQL
+    script_path = 'script_logistica_oracle/script_logistic_oracle.sql'
+
+    # Lista das tabelas esperadas no banco
+    expected_tables = [
+        'VehicleLoadType', 'VehicleLoad', 'Driver', 'Location', 'ResponsiblePerson',
+        'GrainType', 'Load', 'LoadGrainType', 'WeatherForecast', 'Movement',
+        'MovementForecast', 'StockHistory'
+    ]
+
+    # Conectar ao banco
     connection = connect_to_oracle()
     if connection is None:
         return
-    
-    # Script SQL para criar as tabelas (o código que você forneceu anteriormente)
-    sql_script = 'script_logistica_oracle/script_logistic_oracle.sql'
 
-    # Lista de tabelas para verificar antes de tentar criar
-    tables = ['VehicleLoadType', 'VehicleLoad', 'Driver', 'Location', 'ResponsiblePerson', 
-              'GrainType', 'Load', 'LoadGrainType', 'WeatherForecast', 'Movement', 
-              'MovementForecast', 'StockHistory']
+    # Verificar se todas as tabelas existem
+    all_exist = all(check_table_exists(connection, table) for table in expected_tables)
 
-    # Verificar se as tabelas existem e, se não, criar
-    for table in tables:
-        if not check_table_exists(connection, table):
-            print(f"Tabela {table} não encontrada. Criando...")
-            execute_sql_script(connection, sql_script)  # Executa o script SQL completo
-        else:
-            print(f"Tabela {table} já existe. Pulando criação.")
+    if all_exist:
+        print("✅ Todas as tabelas já existem. Nenhuma ação necessária.")
+    else:
+        print("⚠️ Algumas tabelas não foram encontradas. Executando script SQL...")
+        execute_sql_script(connection, script_path)
 
-    # Fechar a conexão após a execução
+    # Fechar conexão
     connection.close()
+    print("🔒 Conexão encerrada.")
 
+# Ponto de entrada do script
 if __name__ == '__main__':
     main()
