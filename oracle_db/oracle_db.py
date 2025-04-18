@@ -4,10 +4,10 @@ import oracledb  # Certifique-se de ter instalado: pip install oracledb
 def connect_to_oracle():
     try:
         connection = oracledb.connect(
-            user='seu_usuario',
-            password='sua_senha',
-            dsn='localhost:1521/XE'  # Substitua pelo seu DSN (host:porta/service_name)
-        )
+    user='c##francismar',
+    password='senha123',
+    dsn='localhost:1521/ORCLCDB',
+)
         print("✅ Conexão bem-sucedida ao banco de dados!")
         return connection
     except oracledb.DatabaseError as e:
